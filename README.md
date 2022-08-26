@@ -6,7 +6,7 @@ Cointopay.com crypto payment plugin for: **PrestaShop**
 
 ## Install
 
-1. Download <https://github.com/Cointopay/prestashop-bancontact/archive/refs/heads/master.zip>
+1. Download <https://github.com/Cointopay/prestashop-card-only-second/archive/refs/heads/master.zip>
 
 2. Go to your PrestaShop admin panel » **Modules** » **Module Manager**.
 
@@ -14,7 +14,7 @@ Cointopay.com crypto payment plugin for: **PrestaShop**
 
 4. In the **Modules list** choose **Modules**.
 
-5. Find **Cointopay Direct Bancontact** and click **Configure** button to next to it, then click **Proceed with the installation**.
+5. Find **Cointopay Direct CC Second** and click **Configure** button to next to it, then click **Proceed with the installation**.
 
 6. Enter your [API credentials](https://cointopay.com) (*Merchant ID* , *Security Code*, *Select crypto currency* ). Crypto currencies will be listed according to the selected coins (Account>Wallet Preference) at <https://cointopay.com>. and click **Save**.
 
