@@ -91,7 +91,7 @@ class Cointopay_Direct_Cc_SecondValidationModuleFrontController extends ModuleFr
 
         \Cointopay_Direct_Cc_Second\Cointopay_Direct_Cc_Second::config($ctpConfig);
         $order = \Cointopay_Direct_Cc_Second\Merchant\Order::createOrFail(array(
-            'order_id'         => $orderObj->reference,
+            'order_id'         => implode('----', [$orderObj->reference, $this->module->currentOrder]),
             'price'            => $total,
             'currency'         => $this->currencyCode($currency->iso_code),
             'cancel_url'       => $this->flashEncode($this->context->link->getModuleLink('cointopay_direct_cc_second', 'cancel')),

@@ -35,17 +35,17 @@ class Cointopay_Direct_Cc_SecondMakepaymentModuleFrontController extends ModuleF
 {
 	public function postProcess()
     {	
-		$id_order = $_GET['id_order'];
-		if(!empty($id_order))
+		$internal_order_id = $_GET['internal_order_id'];
+		if(!empty($internal_order_id))
 		{
-			$this->generatePayment($id_order);
+			$this->generatePayment($internal_order_id);
 		} 
 		else
 		{
 			die('Invalid Order ID.');
 		}
     }
-    public function generatePayment($id_order)
+    public function generatePayment($internal_order_id)
     {	
 		$merchant_id = Configuration::get('COINTOPAY_DIRECT_CC_SECOND_MERCHANT_ID');
         $security_code = Configuration::get('COINTOPAY_DIRECT_CC_SECOND_SECURITY_CODE');
@@ -64,12 +64,12 @@ class Cointopay_Direct_Cc_SecondMakepaymentModuleFrontController extends ModuleF
 
         \Cointopay_Direct_Cc_Second\Cointopay_Direct_Cc_Second::config($ctpConfig);
         $order = \Cointopay_Direct_Cc_Second\Merchant\Order::createOrFail(array(
-            'order_id'         => $id_order,
+            'order_id'         => implode('----', [$_GET['id_order'], $internal_order_id]),
             'price'            => $total,
             'currency'         => $_GET['isocode'],
             'cancel_url'       => $this->flashEncode($this->context->link->getModuleLink('cointopay_direct_cc_second', 'cancel')),
             'callback_url'     => $this->flashEncode($this->context->link->getModuleLink('cointopay_direct_cc_second', 'callback')),
-            'title'            => Configuration::get('PS_SHOP_NAME') . ' Order #' . $id_order,
+            'title'            => Configuration::get('PS_SHOP_NAME') . ' Order #' . $internal_order_id,
             'selected_currency'=> $selected_currency
         ));
          
