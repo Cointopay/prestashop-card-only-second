@@ -27,7 +27,7 @@
 require_once(_PS_MODULE_DIR_ . '/cointopay_direct_cc_second/vendor/cointopay/init.php');
 require_once(_PS_MODULE_DIR_ . '/cointopay_direct_cc_second/vendor/version.php');
 
-class Cointopay_Direct_CcCallbackModuleFrontController extends ModuleFrontController
+class Cointopay_Direct_Cc_SecondCallbackModuleFrontController extends ModuleFrontController
 {
     public $ssl = true;
 
